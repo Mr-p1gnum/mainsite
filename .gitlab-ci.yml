@@ -16,7 +16,7 @@ deploy:
     - chmod 600 /tmp/deploy_key
   script:
     # Синхронизируем файлы из репозитория в папку на сервере
-    - rsync -avz -e "ssh -p 25523 -i /tmp/deploy_key" --delete ./ $SSH_LOGIN_SUP@$SUP_SERVER:/var/www/html/mysite.ru/
+    - rsync -avz -e "ssh -p 25523 -i $SSH_PRIVKEY_SUP" --delete ./ $SSH_LOGIN_SUP@$SUP_SERVER:/var/www/html/mysite.ru/
     # Если требуется перезапустить веб-сервер:
     # - ssh $SERVER_USER@$SERVER_HOST "systemctl restart nginx"
   only:
