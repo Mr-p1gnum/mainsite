@@ -18,6 +18,8 @@ deploy_to_dev:
     - echo "$SSH_PRIVKEY_SUP" > /tmp/deploy_key
     - chmod 600 /tmp/deploy_key
   script:
+    - chmod 600 $SSH_PRIVKEY_SUP
+    - ssh -vvv -p 25523 -i $SSH_PRIVKEY_SUP -o StrictHostKeyChecking=no $SSH_LOGIN_SUP@$SUP_SERVER "echo Connection OK"
     # Синхронизируем файлы из репозитория в папку на сервере
     - rsync -avz -e "ssh -p 25523 -i /tmp/deploy_key" --delete ./ $SSH_LOGIN_SUP@$SUP_SERVER:/var/www/html/mysite.ru/
     # Если требуется перезапустить веб-сервер:
@@ -38,6 +40,8 @@ deploy_to_prod:
     - echo "$SSH_PRIVKEY_CHEF" > /tmp/deploy_key
     - chmod 600 /tmp/deploy_key
   script:
+    - chmod 600 $SSH_PRIVKEY_SUP
+    - ssh -vvv $SSH_PORT_CHEF -i $SSH_PRIVKEY_CHEF -o StrictHostKeyChecking=no $SSH_LOGIN_SUP@$SUP_SERVER "echo Connection OK"
     # Синхронизируем файлы из репозитория в папку на сервере
     - rsync -avz -e "ssh $SSH_PORT_CHEF -i $SSH_PRIVKEY_CHEF" --delete ./ $SSH_LOGIN_CHEF@$SUP_SERVER:/var/www/html/mysite.ru/
     # Если требуется перезапустить веб-сервер:
