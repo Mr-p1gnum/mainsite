@@ -1,29 +1,21 @@
 stages:
-  - build
-  - test
+  - deploy
 
 
-variables:
-  IMAGE: $DOCKERHUB_USERNAME/owncord:$CI_COMMIT_SHORT_SHA
-  STOP_NAME: name_for_stop
-
-image: docker:latest
-
-
-build-job:
-  stage: build
-  script: 
-    - echo "$DOCKER_KEY" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-    - echo "Build Started"
-    - docker build . -t $IMAGE 
-    - docker push $IMAGE
-    - ls -lah
-    - echo "Build completed"
-    
-test-job:
-  stage: test
-  script: 
-    - docker pull $IMAGE
-    - docker run --rm -v /todo-data:/todo-app/data -d -p 80:5000 --name $STOP_NAME $IMAGE
-  after_script:
-    - docker rm -fv $STOP_NAME
+deploy:
+  stage: deploy
+  image: alpine:latest
+  before_script:
+    - apk add --no-cache openssh-client rsync
+    - eval $(ssh-agent -s)
+    - echo "&SSH_PRIVKEY_SUP" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan -H $SUP_SERVER >> ~/.ssh/known_hosts
+  script:
+    # Синхронизируем файлы из репозитория в папку на сервере
+    - rsync -avz --delete ./ $SERVER_USER@$SERVER_HOST:/var/www/html/mysite.com/
+    # Если требуется перезапустить веб-сервер:
+    # - ssh $SERVER_USER@$SERVER_HOST "systemctl restart nginx"
+  only:
+    - main
