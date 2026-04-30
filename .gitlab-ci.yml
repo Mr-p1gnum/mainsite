@@ -36,7 +36,7 @@ deploy_to_prod:
     - chmod 600 $SSH_PRIVKEY_CHEF
     - ssh -vvv $SSH_PORT_CHEF -i $SSH_PRIVKEY_CHEF -o StrictHostKeyChecking=no $SSH_LOGIN@$CHEF_SERVER "echo Connection OK"
     # Синхронизируем файлы из репозитория в папку на сервере
-    - rsync -avz -e "ssh $SSH_PORT_CHEF -i $SSH_PRIVKEY_CHEF" --delete ./ $SSH_LOGIN_CHEF@$CHEF_SERVER:/var/prod/html/mysite.ru/
+    - rsync -avz -e "ssh $SSH_PORT_CHEF -i $SSH_PRIVKEY_CHEF" --delete ./ $SSH_LOGIN@$CHEF_SERVER:/var/prod/html/mysite.ru/
     # Если требуется перезапустить веб-сервер:
     # - ssh $SERVER_USER@$SERVER_HOST "systemctl restart nginx"
 
