@@ -11,10 +11,8 @@ deploy:
     - apk add --no-cache openssh-client rsync
     - eval $(ssh-agent -s)
     - echo "$SSH_PRIVKEY_SUP" | tr -d '\r' | ssh-add -
-    - set -x
     - ping $SUP_SERVER -c 5
-    - ssh-keyscan -H $SUP_SERVER >> ~/.ssh/known_hosts
-    - set +x
+    - ssh-keyscan -p 25523 -H $SUP_SERVER >> ~/.ssh/known_hosts
   script:
     # Синхронизируем файлы из репозитория в папку на сервере
     - rsync -avz --delete ./ $SSH_LOGIN_SUP@$SUP_SERVER:/var/www/html/mysite.com/
