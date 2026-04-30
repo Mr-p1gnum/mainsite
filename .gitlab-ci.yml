@@ -15,7 +15,7 @@ deploy:
     - ssh-keyscan -p 25523 -H $SUP_SERVER >> ~/.ssh/known_hosts
   script:
     # Синхронизируем файлы из репозитория в папку на сервере
-    - rsync -avz --delete ./ $SSH_LOGIN_SUP@$SUP_SERVER:/var/www/html/mysite.com/
+    - rsync -avz -e "ssh -p 25523" --delete ./ $SSH_LOGIN_SUP@$SUP_SERVER:/var/www/html/mysite.com/
     # Если требуется перезапустить веб-сервер:
     # - ssh $SERVER_USER@$SERVER_HOST "systemctl restart nginx"
   only:
