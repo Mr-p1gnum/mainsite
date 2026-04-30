@@ -6,11 +6,11 @@ deploy:
   stage: deploy
   image: alpine:latest
   before_script:
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
     - apk add --no-cache openssh-client rsync
     - eval $(ssh-agent -s)
     - echo "$SSH_PRIVKEY_SUP" | tr -d '\r' | ssh-add -
-    - mkdir -p ~/.ssh
-    - chmod 700 ~/.ssh
     - set -x
     - ssh-keyscan -H $SUP_SERVER >> ~/.ssh/known_hosts
     - set +x
