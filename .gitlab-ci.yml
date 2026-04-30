@@ -6,6 +6,8 @@ deploy:
   stage: deploy
   image: alpine:latest
   before_script:
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
     - apk add --no-cache openssh-client rsync
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
