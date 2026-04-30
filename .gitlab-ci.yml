@@ -11,7 +11,9 @@ deploy:
     - echo "$SSH_PRIVKEY_SUP" | tr -d '\r' | ssh-add -
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
+    - set -x
     - ssh-keyscan -H $SUP_SERVER >> ~/.ssh/known_hosts
+    - set +x
   script:
     # Синхронизируем файлы из репозитория в папку на сервере
     - rsync -avz --delete ./ $SSH_LOGIN_SUP@$SUP_SERVER:/var/www/html/mysite.com/
