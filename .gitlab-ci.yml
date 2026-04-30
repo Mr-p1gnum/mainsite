@@ -15,6 +15,7 @@ deploy:
     - echo "$SSH_PRIVKEY_SUP" > /tmp/deploy_key
     - chmod 600 /tmp/deploy_key
   script:
+    - ssh -vvv -p 25523 -i $SSH_PRIVKEY_SUP -o StrictHostKeyChecking=no $SSH_LOGIN_SUP@$SUP_SERVER "echo Connection OK"
     - chmod 600 $SSH_PRIVKEY_SUP
     # Синхронизируем файлы из репозитория в папку на сервере
     - rsync -avz -e "ssh -p 25523 -i $SSH_PRIVKEY_SUP" --delete ./ $SSH_LOGIN_SUP@$SUP_SERVER:/var/www/html/mysite.ru/
