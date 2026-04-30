@@ -12,6 +12,7 @@ deploy:
     - eval $(ssh-agent -s)
     - echo "$SSH_PRIVKEY_SUP" | tr -d '\r' | ssh-add -
     - set -x
+    - ping $SUP_SERVER -c 5
     - ssh-keyscan -H $SUP_SERVER >> ~/.ssh/known_hosts
     - set +x
   script:
