@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой первый сайт</title>
+    <style>
+        /* --- Сброс стилей и базовые настройки --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a2e;
+            color: #eaeaea;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: #e94560;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* --- Шапка и навигация --- */
+        header {
+            background: #16213e;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #e94560;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #eaeaea;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #e94560;
+        }
+
+        /* --- Основные секции --- */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, #0f3460, #16213e);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #ccc;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #e94560;
+            color: #fff;
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .btn:hover {
+            background: #c23152;
+            transform: translateY(-2px);
+        }
+
+        .features {
+            padding: 4rem 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .feature-card {
+            background: #16213e;
+            padding: 2rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: #e94560;
+        }
+
+        /* --- Подвал --- */
+        footer {
+            background: #0f3460;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* --- Мобильное меню --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">MySite</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#features">Возможности</a></li>
+                    <li><a href="#about">О проекте</a></li>
+                    <li><a href="https://github.com/Mr-p1gnum" target="_blank" rel="noopener">GitHub</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Главный экран -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Добро пожаловать на мой сайт</h1>
+            <p>
+                Это простой шаблон с автоматическим деплоем через GitHub Actions. При каждом коммите в ветку main сайт обновляется сам.
+            </p>
+            <a href="#features" class="btn">Узнать больше</a>
+        </div>
+    </section>
+
+    <!-- Карточки возможностей -->
+    <section id="features" class="container features">
+        <div class="feature-card">
+            <h3>Быстрый старт</h3>
+            <p>Клонируйте репозиторий, измените этот текст и отправьте коммит — сайт обновится мгновенно.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Адаптивность</h3>
+            <p>Шаблон корректно отображается на смартфонах, планшетах и десктопах.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Никакого бэкенда</h3>
+            <p>Чистый HTML, CSS и JavaScript. Идеально для GitHub Pages, Vercel или Netlify.</p>
+        </div>
+    </section>
+
+    <!-- О проекте -->
+    <section id="about" class="container" style="padding: 4rem 0; text-align: center;">
+        <h2 style="margin-bottom: 1rem; color: #e94560;">О проекте</h2>
+        <p style="max-width: 700px; margin: 0 auto;">
+            Этот сайт создан как основа для изучения автоматического деплоя. Вы можете добавить свои секции, изображения, формы или даже подключить API. Всё, что вы видите, — один HTML-файл. Измените его и отправьте на GitHub, чтобы увидеть магию CI/CD.
+        </p>
+    </section>
+
+    <!-- Подвал с текущим годом -->
+    <footer>
+        <div class="container">
+            <p>© <span id="year"></span> Мой сайт. Автодеплой работает!</p>
+        </div>
+    </footer>
+
+    <!-- Простой скрипт: год в подвале и плавная прокрутка -->
+    <script>
+        // Устанавливаем актуальный год
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Плавная прокрутка для всех якорных ссылок
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

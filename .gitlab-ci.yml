@@ -1,0 +1,29 @@
+stages:
+  - build
+  - test
+
+
+variables:
+  IMAGE: $DOCKERHUB_USERNAME/owncord:$CI_COMMIT_SHORT_SHA
+  STOP_NAME: name_for_stop
+
+image: docker:latest
+
+
+build-job:
+  stage: build
+  script: 
+    - echo "$DOCKER_KEY" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+    - echo "Build Started"
+    - docker build . -t $IMAGE 
+    - docker push $IMAGE
+    - ls -lah
+    - echo "Build completed"
+    
+test-job:
+  stage: test
+  script: 
+    - docker pull $IMAGE
+    - docker run --rm -v /todo-data:/todo-app/data -d -p 80:5000 --name $STOP_NAME $IMAGE
+  after_script:
+    - docker rm -fv $STOP_NAME
