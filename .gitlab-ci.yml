@@ -9,19 +9,16 @@ deploy_to_dev:
   rules:
     - if: $CI_COMMIT_BRANCH == 'dev'
   before_script:
-    - mkdir -p ~/.ssh
-    - chmod 700 ~/.ssh
+
     - apk add --no-cache openssh-client rsync
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
     - ssh-keyscan -H  $SSH_PORT_SUP $SUP_SERVER >> ~/.ssh/known_hosts
-    - echo "$SSH_PRIVKEY_SUP" > /tmp/deploy_key
-    - chmod 600 /tmp/deploy_key
   script:
     - chmod 600 $SSH_PRIVKEY_SUP
     - ssh -vvv $SSH_PORT_SUP -i $SSH_PRIVKEY_SUP -o StrictHostKeyChecking=no $SSH_LOGIN_SUP@$SUP_SERVER "echo Connection OK"
     # Синхронизируем файлы из репозитория в папку на сервере
-    - rsync -avz -e "ssh -p 25523 -i /tmp/deploy_key" --delete ./ $SSH_LOGIN_SUP@$SUP_SERVER:/var/www/html/mysite.ru/
+    - rsync -avz -e "ssh -p 25523 -i $SSH_PRIVKEY_SUP" --delete ./ $SSH_LOGIN_SUP@$SUP_SERVER:/var/www/html/mysite.ru/
     # Если требуется перезапустить веб-сервер:
     # - ssh $SERVER_USER@$SERVER_HOST "systemctl restart nginx"
 
@@ -31,14 +28,10 @@ deploy_to_prod:
   rules:
     - if: $CI_COMMIT_BRANCH == 'main'
   before_script:
-    - mkdir -p ~/.ssh
-    - chmod 700 ~/.ssh
     - apk add --no-cache openssh-client rsync
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
     - ssh-keyscan -H  $SSH_PORT_CHEF $CHEF_SERVER >> ~/.ssh/known_hosts
-    - echo "$SSH_PRIVKEY_CHEF" > /tmp/deploy_key
-    - chmod 600 /tmp/deploy_key
   script:
     - chmod 600 $SSH_PRIVKEY_SUP
     - ssh -vvv $SSH_PORT_CHEF -i $SSH_PRIVKEY_CHEF -o StrictHostKeyChecking=no $SSH_LOGIN_SUP@$SUP_SERVER "echo Connection OK"
