@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mr.P1gnum · DevOps & Self-hosting</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="/head.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="png/head.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
@@ -655,30 +655,33 @@
                 <h2 class="section-title" data-i18n="projects_title">Мои проекты</h2>
                 <div class="projects-list">
                     <!-- Проект 1 -->
-                    <div class="project-card" data-lightbox-src="https://picsum.photos/seed/devops1/1200/800" data-i18n-caption="project1_title" data-animate>
-                        <img class="project-img" src="https://picsum.photos/seed/devops1/1200/800" alt="DevOps инфраструктура" loading="lazy">
+                    <div class="project-card" data-lightbox-src="png/ansible.png" data-i18n-caption="project1_title" data-animate>
+                        <img class="project-img" src="png/ansible2.png" alt="DevOps инфраструктура" loading="lazy">
                         <div class="project-overlay">
                             <h3 data-i18n="project1_title">Инфраструктура как код</h3>
                             <p data-i18n="project1_desc">Ansible, автоматическая настройка серверов.</p>
-                            <a href="https://github.com/Mr-p1gnum/Ansible" target="_blank" rel="noopener" class="project-link" data-i18n="project1_link">Подробнее →</a>
+                            <a href="https://github.com/Mr-p1gnum/Ansible" target="_blank" rel="noopener" class="project-link" data-i18n="project1_link">Исходники →</a>
                         </div>
                     </div>
                     <!-- Проект 2 -->
-                    <div class="project-card" data-lightbox-src="grafana.png" data-i18n-caption="project2_title" data-animate>
-                        <img class="project-img" src="grafana.png" alt="Мониторинг" loading="lazy">
+                    <div class="project-card" data-lightbox-src="png/grafana.png" data-i18n-caption="project2_title" data-animate>
+                        <img class="project-img" src="png/grafana2.png" alt="Мониторинг" loading="lazy">
                         <div class="project-overlay">
                             <h3 data-i18n="project2_title">Система мониторинга</h3>
                             <p data-i18n="project2_desc">Prometheus + Grafana, дашборды для всех сервисов.</p>
-                            <a href="https://github.com/Mr-p1gnum/metrics" target="_blank" rel="noopener" class="project-link" data-i18n="project2_link">Посмотреть →</a>
+                            <a href="https://github.com/Mr-p1gnum/metrics" target="_blank" rel="noopener" class="project-link" data-i18n="project2_link">Исходники →</a>
                         </div>
                     </div>
                     <!-- Проект 3 -->
-                    <div class="project-card" data-lightbox-src="site.png" data-i18n-caption="project3_title" data-animate>
-                        <img class="project-img" src="site2.png" alt="Автодеплой" loading="lazy">
+                    <div class="project-card" data-lightbox-src="png/site.png" data-i18n-caption="project3_title" data-animate>
+                        <img class="project-img" src="png/site2.png" alt="Автодеплой" loading="lazy">
                         <div class="project-overlay">
                             <h3 data-i18n="project3_title">Вот этот сайт</h3>
                             <p data-i18n="project3_desc">Автоматический деплой статики из GitLab CI на свой хост.</p>
                             <a href="https://gitlab.mrp1gnum.ru/mr-p1gnum/mainsite" target="_blank" rel="noopener" class="project-link" data-i18n="project3_link">Исходники →</a>
+                        </div>
+                    </div>
+                     <!-- Проект 4 -->
                         </div>
                     </div>
                 </div>
@@ -689,7 +692,7 @@
         <section id="about" class="container">
             <h2 class="section-title" data-i18n="about_title">Обо мне</h2>
             <div class="about-flex">
-                <img class="about-photo" src="https://picsum.photos/seed/avatar/400/400" alt="Фото профиля" loading="lazy">
+                <img class="about-photo" src="png/avatar.png" alt="Фото профиля" loading="lazy">
                 <div class="about-text" data-i18n="about_desc">
                     <!-- заполняется скриптом -->
                 </div>
@@ -752,10 +755,10 @@
                     projects_title: "Мои проекты",
                     project1_title: "Инфраструктура как код",
                     project1_desc: "Ansible, автоматическая настройка серверов.",
-                    project1_link: "Подробнее →",
+                    project1_link: "Исходники →",
                     project2_title: "Система мониторинга",
                     project2_desc: "Prometheus + Grafana, дашборды для всех сервисов.",
-                    project2_link: "Посмотреть →",
+                    project2_link: "Исходники →",
                     project3_title: "Вот этот сайт",
                     project3_desc: "Автоматический деплой статики из GitLab CI на свой хост.",
                     project3_link: "Исходники →",
@@ -791,10 +794,10 @@
                     projects_title: "My projects",
                     project1_title: "Infrastructure as Code",
                     project1_desc: "Ansible, automated server configuration.",
-                    project1_link: "Details →",
+                    project1_link: "Source →",
                     project2_title: "Monitoring System",
                     project2_desc: "Prometheus + Grafana dashboards for all services.",
-                    project2_link: "View →",
+                    project2_link: "Source →",
                     project3_title: "This website",
                     project3_desc: "Automatic static site deployment from GitLab CI to my own host.",
                     project3_link: "Source →",
