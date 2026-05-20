@@ -82,6 +82,14 @@
             top: 0;
             z-index: 100;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease; /* для плавного скрытия на мобильных */
+        }
+
+        /* Класс, скрывающий шапку на мобильных при скролле вниз */
+        @media (max-width: 768px) {
+            header.header-hidden {
+                transform: translateY(-100%);
+            }
         }
 
         nav {
@@ -649,7 +657,7 @@
             </div>
         </section>
 
-        <!-- Проекты (вертикальный список) --->
+        <!-- Проекты (вертикальный список) -->
         <div id="projects" class="projects-fullwidth">
             <div class="container">
                 <h2 class="section-title" data-i18n="projects_title">Мои проекты</h2>
@@ -688,8 +696,6 @@
                             <h3 data-i18n="project4_title">Telegram-бот</h3>
                             <p data-i18n="project4_desc">Alert-ы для мониторинга сетевой доступности серверов.</p>
                             <a href="https://gitlab.mrp1gnum.ru/mr-p1gnum/telegram-helper" target="_blank" rel="noopener" class="project-link" data-i18n="project4_link">Исходники →</a>
-                        </div>
-                    </div>
                         </div>
                     </div>
                 </div>
@@ -1015,6 +1021,33 @@
             });
 
             applyLanguage(currentLanguage);
+        })();
+
+        // ---------- Скрытие шапки на мобильных при скролле ----------
+        (function() {
+            const header = document.querySelector('header');
+            if (!header) return;
+            let lastScroll = 0;
+            const mobileBreakpoint = 768;
+
+            window.addEventListener('scroll', function() {
+                if (window.innerWidth > mobileBreakpoint) return;
+                const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+                // Чтобы не дёргалось в самом верху страницы
+                if (currentScroll <= 0) {
+                    header.classList.remove('header-hidden');
+                    lastScroll = currentScroll;
+                    return;
+                }
+                if (currentScroll > lastScroll && currentScroll > header.offsetHeight) {
+                    // скроллим вниз — прячем шапку
+                    header.classList.add('header-hidden');
+                } else if (currentScroll < lastScroll) {
+                    // скроллим вверх — показываем
+                    header.classList.remove('header-hidden');
+                }
+                lastScroll = currentScroll;
+            });
         })();
     </script>
 </body>
