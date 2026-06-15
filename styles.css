@@ -71,6 +71,13 @@ header {
     top: 0;
     z-index: 100;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    header.header-hidden {
+        transform: translateY(-100%);
+    }
 }
 
 nav {
@@ -229,7 +236,7 @@ section {
     border-radius: 5px;
 }
 
-/* ===== Навыки (features) ===== */
+/* ===== Навыки ===== */
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -278,7 +285,7 @@ section {
     font-size: 0.95rem;
 }
 
-/* ===== ПРОЕКТЫ (вертикальный поток) ===== */
+/* ===== ПРОЕКТЫ ===== */
 .projects-fullwidth {
     padding: 3rem 0;
     background: rgba(10, 7, 18, 0.6);

@@ -21,16 +21,23 @@
             feature4_desc: "Настройка фаерволов, HTTPS, защита от атак — всё включено.",
             feature5_title: "Администрирование Linux",
             feature5_desc: "Управление серверами, написание скриптов, маппинг дисков, настройка сети.",
+            feature6_title: "VPN сервер",
+            feature6_desc: "Поднятие и настройка VPN (WireGuard/OpenVPN) для защищённого доступа к внутренним ресурсам.",
+            feature7_title: "Базы данных",
+            feature7_desc: "Развёртывание и администрирование PostgreSQL, MySQL, резервное копирование.",
             projects_title: "Мои проекты",
-            project1_title: "Инфраструктура как код",
-            project1_desc: "Ansible, автоматическая настройка серверов.",
-            project1_link: "Исходники →",
+            project1_title: "Локальный GitLab",
+            project1_desc: "Автоматические тесты через pipeline.",
+            project1_link: "Исходники (not modded) →",
             project2_title: "Система мониторинга",
             project2_desc: "Prometheus + Grafana, дашборды для всех сервисов.",
             project2_link: "Исходники →",
             project3_title: "Вот этот сайт",
             project3_desc: "Автоматический деплой статики из GitLab CI на свой хост.",
             project3_link: "Исходники →",
+            project4_title: "Telegram-бот",
+            project4_desc: "Alert-ы для мониторинга сетевой доступности серверов.",
+            project4_link: "Исходники →",
             about_title: "Обо мне",
             about_desc: "",
             stats_btn: "📊 Статистика",
@@ -60,16 +67,23 @@
             feature4_desc: "Firewall setup, HTTPS, DDoS protection — all included.",
             feature5_title: "Linux Administration",
             feature5_desc: "Server management, scripting, disk mapping, network setup.",
+            feature6_title: "VPN Server",
+            feature6_desc: "Setting up VPN (WireGuard/OpenVPN) for secure access to internal resources.",
+            feature7_title: "Databases",
+            feature7_desc: "Deployment and administration of PostgreSQL, MySQL, backup management.",
             projects_title: "My projects",
-            project1_title: "Infrastructure as Code",
-            project1_desc: "Ansible, automated server configuration.",
-            project1_link: "Source →",
+            project1_title: "Local GitLab",
+            project1_desc: "Automated tests through the pipeline.",
+            project1_link: "Source (not modded) →",
             project2_title: "Monitoring System",
             project2_desc: "Prometheus + Grafana dashboards for all services.",
             project2_link: "Source →",
             project3_title: "This website",
             project3_desc: "Automatic static site deployment from GitLab CI to my own host.",
             project3_link: "Source →",
+            project4_title: "Telegram-bot",
+            project4_desc: "Alerts for monitoring network availability of servers.",
+            project4_link: "Source →",
             about_title: "About me",
             about_desc: "",
             stats_btn: "📊 Statistics",
@@ -87,7 +101,7 @@
              <p>Связь со мной: 
                 <a href="https://github.com/Mr-p1gnum" target="_blank" rel="noopener">GitHub</a> · 
                 <a href="https://gitlab.mrp1gnum.ru/mr-p1gnum" target="_blank" rel="noopener">GitLab</a> · 
-                <a href="https://hub.docker.com/repositories/mrp1gnum" target="_blank" rel="noopener">DockerHub</a> · 
+                <a href="https://hub.docker.com/u/mrp1gnum" target="_blank" rel="noopener">DockerHub</a> · 
                 <a href="https://t.me/mrp1gnum" target="_blank" rel="noopener">Telegram: @mrp1gnum</a>
              </p>`,
         en: `<p>Hi! I'm Andrey — a beginner DevOps engineer and self-hosting enthusiast.</p>
@@ -95,7 +109,7 @@
              <p>Find me on: 
                 <a href="https://github.com/Mr-p1gnum" target="_blank" rel="noopener">GitHub</a> · 
                 <a href="https://gitlab.mrp1gnum.ru/mr-p1gnum" target="_blank" rel="noopener">GitLab</a> · 
-                <a href="https://hub.docker.com/repositories/mrp1gnum" target="_blank" rel="noopener">DockerHub</a> · 
+                <a href="https://hub.docker.com/u/mrp1gnum" target="_blank" rel="noopener">DockerHub</a> · 
                 <a href="https://t.me/mrp1gnum" target="_blank" rel="noopener">Telegram: @mrp1gnum</a>
              </p>`
     };
@@ -270,4 +284,28 @@
     });
 
     applyLanguage(currentLanguage);
+})();
+
+// ---------- Скрытие шапки на мобильных при скролле ----------
+(function() {
+    const header = document.querySelector('header');
+    if (!header) return;
+    let lastScroll = 0;
+    const mobileBreakpoint = 768;
+
+    window.addEventListener('scroll', function() {
+        if (window.innerWidth > mobileBreakpoint) return;
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        if (currentScroll <= 0) {
+            header.classList.remove('header-hidden');
+            lastScroll = currentScroll;
+            return;
+        }
+        if (currentScroll > lastScroll && currentScroll > header.offsetHeight) {
+            header.classList.add('header-hidden');
+        } else if (currentScroll < lastScroll) {
+            header.classList.remove('header-hidden');
+        }
+        lastScroll = currentScroll;
+    });
 })();
