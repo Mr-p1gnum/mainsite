@@ -25,6 +25,8 @@
             feature6_desc: "Поднятие и настройка VPN (WireGuard/OpenVPN) для защищённого доступа к внутренним ресурсам.",
             feature7_title: "Базы данных",
             feature7_desc: "Развёртывание и администрирование PostgreSQL, MySQL, резервное копирование.",
+            feature8_title: "Оркестрация контейнеров",
+            feature8_desc: "Docker Swarm для управления кластерами и масштабирования сервисов.",
             projects_title: "Мои проекты",
             project1_title: "Локальный GitLab",
             project1_desc: "Автоматические тесты через pipeline.",
@@ -71,6 +73,8 @@
             feature6_desc: "Setting up VPN (WireGuard/OpenVPN) for secure access to internal resources.",
             feature7_title: "Databases",
             feature7_desc: "Deployment and administration of PostgreSQL, MySQL, backup management.",
+            feature8_title: "Container Orchestration",
+            feature8_desc: "Docker Swarm for cluster management and service scaling.",
             projects_title: "My projects",
             project1_title: "Local GitLab",
             project1_desc: "Automated tests through the pipeline.",
@@ -100,17 +104,17 @@
              <p>Увлекаюсь автоматизацией, контейнеризацией и созданием надёжных инфраструктур. Этот сайт — живой пример моего подхода: просто, быстро, под полным контролем.</p>
              <p>Связь со мной: 
                 <a href="https://github.com/Mr-p1gnum" target="_blank" rel="noopener">GitHub</a> · 
-                <a href="https://gitlab.mrp1gnum.ru/mr-p1gnum" target="_blank" rel="noopener">GitLab</a> · 
                 <a href="https://hub.docker.com/u/mrp1gnum" target="_blank" rel="noopener">DockerHub</a> · 
-                <a href="https://t.me/mrp1gnum" target="_blank" rel="noopener">Telegram: @mrp1gnum</a>
+                <a href="https://t.me/mrp1gnum" target="_blank" rel="noopener">Telegram: @mrp1gnum</a> ·
+                <span class="copy-email" data-email="andruyha5000@gmail.com">✉ скопировать почту</span>
              </p>`,
         en: `<p>Hi! I'm Andrey — a beginner DevOps engineer and self-hosting enthusiast.</p>
              <p>I love automation, containerization, and building reliable infrastructures. This site is a live example of my approach: simple, fast, fully under my control.</p>
              <p>Find me on: 
                 <a href="https://github.com/Mr-p1gnum" target="_blank" rel="noopener">GitHub</a> · 
-                <a href="https://gitlab.mrp1gnum.ru/mr-p1gnum" target="_blank" rel="noopener">GitLab</a> · 
                 <a href="https://hub.docker.com/u/mrp1gnum" target="_blank" rel="noopener">DockerHub</a> · 
-                <a href="https://t.me/mrp1gnum" target="_blank" rel="noopener">Telegram: @mrp1gnum</a>
+                <a href="https://t.me/mrp1gnum" target="_blank" rel="noopener">Telegram: @mrp1gnum</a> ·
+                <span class="copy-email" data-email="andruyha5000@gmail.com">✉ copy email</span>
              </p>`
     };
 
@@ -308,4 +312,41 @@
         }
         lastScroll = currentScroll;
     });
+
+document.addEventListener('click', function(e) {
+    const target = e.target.closest('.copy-email');
+    if (!target) return;
+
+    const email = target.getAttribute('data-email');
+    if (!email) return;
+
+    // Современный Clipboard API
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email)
+            .then(() => {
+                const originalText = target.textContent;
+                target.textContent = '✅ Скопировано!';
+                setTimeout(() => {
+                    target.textContent = originalText;
+                }, 2000);
+            })
+            .catch(() => {
+                alert('Не удалось скопировать. Попробуйте вручную.');
+            });
+    } else {
+        // Fallback для старых браузеров
+        const textArea = document.createElement('textarea');
+        textArea.value = email;
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+            document.execCommand('copy');
+            alert('Скопировано в буфер!');
+        } catch {
+            alert('Не удалось скопировать. Попробуйте вручную.');
+        }
+        document.body.removeChild(textArea);
+    }
+});
+
 })();
