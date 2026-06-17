@@ -538,6 +538,15 @@ footer {
 
 .modal-close:hover { color: white; }
 
+.copy-email {
+    cursor: pointer;
+    color: #c084fc;
+    text-decoration: underline;
+}
+.copy-email:hover {
+    color: #c084fc;
+}
+
 .stats-list {
     list-style: none;
     padding: 0;
