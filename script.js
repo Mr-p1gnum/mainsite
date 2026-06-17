@@ -314,7 +314,7 @@
     });
 
 document.addEventListener('click', function(e) {
-    const target = e.target.closest('.copy-email');
+    const target = e.target.closest('copy-email');
     if (!target) return;
 
     const email = target.getAttribute('data-email');
