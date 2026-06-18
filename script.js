@@ -42,12 +42,6 @@
             project4_link: "Исходники →",
             about_title: "Обо мне",
             about_desc: "",
-            stats_btn: "📊 Статистика",
-            stats_title: "Локальная статистика",
-            stats_visits: "Заходов на страницу: ",
-            stats_clicks: "Всего кликов: ",
-            stats_recent: "Последние действия:",
-            stats_clear: "Очистить статистику"
         },
         en: {
             logo: "MainSelfSite",
@@ -90,12 +84,6 @@
             project4_link: "Source →",
             about_title: "About me",
             about_desc: "",
-            stats_btn: "📊 Statistics",
-            stats_title: "Local Statistics",
-            stats_visits: "Page visits: ",
-            stats_clicks: "Total clicks: ",
-            stats_recent: "Recent actions:",
-            stats_clear: "Clear statistics"
         }
     };
 
@@ -105,16 +93,16 @@
              <p>Связь со мной: 
                 <a href="https://github.com/Mr-p1gnum" target="_blank" rel="noopener">GitHub</a> · 
                 <a href="https://hub.docker.com/u/mrp1gnum" target="_blank" rel="noopener">DockerHub</a> · 
-                <a href="https://t.me/mrp1gnum" target="_blank" rel="noopener">Telegram: @mrp1gnum</a> ·
-                <span class="copy-email" data-email="andruyha5000@gmail.com">✉ скопировать почту</span>
+                <a href="https://t.me/mrp1gnum" target="_blank" rel="noopener">Telegram</a> ·
+                <span class="copy-email" data-email="andruyha5000@gmail.com">Почта</span>
              </p>`,
         en: `<p>Hi! I'm Andrey — a beginner DevOps engineer and self-hosting enthusiast.</p>
              <p>I love automation, containerization, and building reliable infrastructures. This site is a live example of my approach: simple, fast, fully under my control.</p>
              <p>Find me on: 
                 <a href="https://github.com/Mr-p1gnum" target="_blank" rel="noopener">GitHub</a> · 
                 <a href="https://hub.docker.com/u/mrp1gnum" target="_blank" rel="noopener">DockerHub</a> · 
-                <a href="https://t.me/mrp1gnum" target="_blank" rel="noopener">Telegram: @mrp1gnum</a> ·
-                <span class="copy-email" data-email="andruyha5000@gmail.com">✉ copy email</span>
+                <a href="https://t.me/mrp1gnum" target="_blank" rel="noopener">Telegram</a> ·
+                <span class="copy-email" data-email="andruyha5000@gmail.com">Mail</span>
              </p>`
     };
 
@@ -314,7 +302,7 @@
     });
 
 document.addEventListener('click', function(e) {
-    const target = e.target.closest('copy-email');
+    const target = e.target.closest('.copy-email');
     if (!target) return;
 
     const email = target.getAttribute('data-email');
@@ -341,7 +329,7 @@ document.addEventListener('click', function(e) {
         textArea.select();
         try {
             document.execCommand('copy');
-            alert('Скопировано в буфер!');
+            alert('Скопировано!');
         } catch {
             alert('Не удалось скопировать. Попробуйте вручную.');
         }
