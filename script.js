@@ -95,7 +95,7 @@ const aboutHTML = {
             <a href="https://github.com/Mr-p1gnum" target="_blank" rel="noopener">GitHub</a> · 
             <a href="https://hub.docker.com/u/mrp1gnum" target="_blank" rel="noopener">DockerHub</a> · 
             <a href="https://t.me/mrp1gnum" target="_blank" rel="noopener">Telegram</a> ·
-            <span class="copy-email" data-email="andruyha5000@gmail.com">Почта</span>
+            <span class="copy-email" data-email="mr-p1gnum@mrp1gnum.ru">Почта</span>
          </p>`,
     en: `<p>Hi! I'm Andrey — a beginner DevOps engineer and self-hosting enthusiast.</p>
          <p>I love automation, containerization, and building reliable infrastructures. This site is a live example of my approach: simple, fast, fully under my control.</p>
