@@ -103,7 +103,7 @@ const aboutHTML = {
             <a href="https://github.com/Mr-p1gnum" target="_blank" rel="noopener">GitHub</a> · 
             <a href="https://hub.docker.com/u/mrp1gnum" target="_blank" rel="noopener">DockerHub</a> · 
             <a href="https://t.me/mrp1gnum" target="_blank" rel="noopener">Telegram</a> ·
-            <span class="copy-email" data-email="andruyha5000@gmail.com">Mail</span>
+            <span class="copy-email" data-email="mr-p1gnum@mrp1gnum.ru">Mail</span>
          </p>`
 };
 
