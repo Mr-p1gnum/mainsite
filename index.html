@@ -1,160 +1,603 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mr.P1gnum · DevOps & Self-hosting</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="png/head.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mr.p1gnum — Форум-визитка</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo" data-i18n="logo">MainSelfSite</a>
-                <ul class="nav-links">
-                    <li><a href="#home" data-i18n="nav_home">Главная</a></li>
-                    <li><a href="#features" data-i18n="nav_features">Навыки</a></li>
-                    <li><a href="#projects" data-i18n="nav_projects">Проекты</a></li>
-                    <li><a href="#about" data-i18n="nav_about">О себе</a></li>
-                    <li>
-                        <button id="langToggle" class="lang-mini" aria-label="Переключить язык">EN</button>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="container">
-                <h1 data-i18n="hero_title">Добро пожаловать на мой сайт</h1>
-                <p data-i18n="hero_desc">
-                    Автоматический деплой через Gitlab CI/CD, хранение на своём сервере, полный самоконтроль.
-                </p>
-                <a href="#projects" class="btn" data-i18n="hero_btn">Смотреть проекты</a>
-            </div>
-        </section>
-
-        <section id="features" class="container">
-            <h2 class="section-title" data-i18n="features_title">Что я умею</h2>
-            <div class="features-grid">
-                <div class="feature-card" data-animate>
-                    <span class="feature-icon">🐳</span>
-                    <h3 data-i18n="feature1_title">Контейнеризация</h3>
-                    <p data-i18n="feature1_desc">Docker и docker-compose для любых проектов: от блога до высоконагруженных сервисов.</p>
-                </div>
-                <div class="feature-card" data-animate>
-                    <span class="feature-icon">⚙️</span>
-                    <h3 data-i18n="feature2_title">CI/CD</h3>
-                    <p data-i18n="feature2_desc">Автоматические пайплайны GitLab CI: тесты, сборка, деплой одной командой git push.</p>
-                </div>
-                <div class="feature-card" data-animate>
-                    <span class="feature-icon">☁️</span>
-                    <h3 data-i18n="feature3_title">Self-hosting</h3>
-                    <p data-i18n="feature3_desc">Собственный сервер, свои правила. Никаких облачных ограничений.</p>
-                </div>
-                <div class="feature-card" data-animate>
-                    <span class="feature-icon">🔒</span>
-                    <h3 data-i18n="feature4_title">Безопасность</h3>
-                    <p data-i18n="feature4_desc">Настройка фаерволов, HTTPS, защита от атак — всё включено.</p>
-                </div>
-                <div class="feature-card" data-animate>
-                    <span class="feature-icon">🐧</span>
-                    <h3 data-i18n="feature5_title">Администрирование Linux</h3>
-                    <p data-i18n="feature5_desc">Управление серверами, написание скриптов, маппинг дисков, настройка сети.</p>
-                </div>
-                <div class="feature-card" data-animate>
-                    <span class="feature-icon">🔐</span>
-                    <h3 data-i18n="feature6_title">VPN сервер</h3>
-                    <p data-i18n="feature6_desc">Поднятие и настройка VPN (WireGuard/OpenVPN) для защищённого доступа к внутренним ресурсам.</p>
-                </div>
-                <div class="feature-card" data-animate>
-                    <span class="feature-icon">🗄️</span>
-                    <h3 data-i18n="feature7_title">Базы данных</h3>
-                    <p data-i18n="feature7_desc">Развёртывание и администрирование PostgreSQL, MySQL, резервное копирование.</p>
-                </div>
-                <div class="feature-card" data-animate>
-                    <div class="feature-icon">☸️</div>
-                    <h3 data-i18n="feature8_title">Оркестрация контейнеров</h3>
-                    <p data-i18n="feature8_desc">Docker Swarm для управления кластерами и масштабирования сервисов.</p>
-                </div>
-            </div>
-        </section>
-
-        <div id="projects" class="projects-fullwidth">
-            <div class="container">
-                <h2 class="section-title" data-i18n="projects_title">Мои проекты</h2>
-                <div class="projects-list">
-                    <div class="project-card" data-lightbox-src="png/gitlab2.png" data-i18n-caption="project1_title" data-animate>
-                        <img class="project-img" src="png/gitlab.png" alt="DevOps инструмент" loading="lazy">
-                        <div class="project-overlay">
-                            <h3 data-i18n="project1_title">Локальный GitLab</h3>
-                            <p data-i18n="project1_desc">Автоматические тесты через pipeline.</p>
-                            <a href="https://github.com/Mr-p1gnum/gitlabCI" target="_blank" rel="noopener" class="project-link" data-i18n="project1_link">Исходники(not mod.) →</a>
-                        </div>
-                    </div>
-                    <div class="project-card" data-lightbox-src="png/grafana.png" data-i18n-caption="project2_title" data-animate>
-                        <img class="project-img" src="png/grafana2.png" alt="Мониторинг" loading="lazy">
-                        <div class="project-overlay">
-                            <h3 data-i18n="project2_title">Система мониторинга</h3>
-                            <p data-i18n="project2_desc">Prometheus + Grafana, дашборды для всех сервисов.</p>
-                            <a href="https://github.com/Mr-p1gnum/metrics" target="_blank" rel="noopener" class="project-link" data-i18n="project2_link">Исходники →</a>
-                        </div>
-                    </div>
-                    <div class="project-card" data-lightbox-src="png/site.png" data-i18n-caption="project3_title" data-animate>
-                        <img class="project-img" src="png/site2.png" alt="Автодеплой" loading="lazy">
-                        <div class="project-overlay">
-                            <h3 data-i18n="project3_title">Вот этот сайт</h3>
-                            <p data-i18n="project3_desc">Автоматический деплой статики из GitLab CI на свой хост.</p>
-                            <a href="https://gitlab.mrp1gnum.ru/mr-p1gnum/mainsite" target="_blank" rel="noopener" class="project-link" data-i18n="project3_link">Исходники →</a>
-                        </div>
-                    </div>
-                    <div class="project-card" data-lightbox-src="png/tg-bot2.png" data-i18n-caption="project4_title" data-animate>
-                        <img class="project-img" src="png/tg-bot.png" alt="Бот" loading="lazy">
-                        <div class="project-overlay">
-                            <h3 data-i18n="project4_title">Telegram-бот</h3>
-                            <p data-i18n="project4_desc">Alert-ы для мониторинга сетевой доступности серверов.</p>
-                            <a href="https://gitlab.mrp1gnum.ru/mr-p1gnum/telegram-helper" target="_blank" rel="noopener" class="project-link" data-i18n="project4_link">Исходники →</a>
-                        </div>
-                    </div>
-                    <div class="project-card" data-lightbox-src="png/post.png" data-i18n-caption="project5_title" data-animate>
-                        <img class="project-img" src="png/post2.png" alt="Бот" loading="lazy">
-                        <div class="project-overlay">
-                            <h3 data-i18n="project5_title">Почтовый сервис</h3>
-                            <p data-i18n="project5_desc">Почтовый сервис для рабочей почты и будущих программ.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <section id="about" class="container">
-            <h2 class="section-title" data-i18n="about_title">Обо мне</h2>
-            <div class="about-flex">
-                <img class="about-photo" src="png/avatar.png" alt="Фото профиля" loading="lazy">
-                <div class="about-text" data-i18n="about_desc"></div>
-            </div>
-        </section>
-    </main>
-
-    <div id="lightbox" class="lightbox">
-        <button class="lightbox-close" id="closeLightbox">&times;</button>
-        <img src="" alt="" id="lightboxImg">
-        <p class="lightbox-caption" id="lightboxCaption"></p>
+<div id="forum-wrapper">
+    <!-- ===== ШАПКА ===== -->
+    <div id="header">
+        <div class="logo">🌿 <span id="logo-text">Mr.p1gnum Forum</span></div>
+        <div class="date" id="header-date">Сегодня: 29 июня 2026</div>
     </div>
 
-    <footer>
-        <div class="container">
-            <p>© <span id="year"></span> MainSelfSite.
-            </p>
+    <!-- ===== МЕНЮ ===== -->
+    <div id="navbar">
+        <a href="#" onclick="showSection('index'); return false;" id="nav-index">🏠 Форум</a>
+        <a href="#" onclick="showSection('about'); return false;" id="nav-about">👤 О себе</a>
+        <a href="#" onclick="showSection('skills'); return false;" id="nav-skills">⚙️ Навыки</a>
+        <a href="#" onclick="showSection('projects'); return false;" id="nav-projects">📂 Проекты</a>
+        <a href="#" onclick="showSection('blog'); return false;" id="nav-blog">📝 Блог</a>
+        <a href="#" onclick="showSection('guestbook'); return false;" id="nav-guestbook">📖 Гостевая</a>
+        <a href="#" onclick="showSection('achievements'); return false;" id="nav-achievements">🏆 Достижения</a>
+        <a href="#" onclick="showSection('contacts'); return false;" id="nav-contacts">✉️ Контакты</a>
+        <span style="flex:1;"></span>
+        <a href="#" id="lang-switch">EN</a>
+    </div>
+
+    <!-- ===== КОНТЕНТ ===== -->
+    <div id="content">
+
+        <!-- ===== ГЛАВНАЯ (индекс) ===== -->
+        <div id="section-index" class="forum-section active">
+            <h2 id="index-title">📋 Список разделов</h2>
+            <table class="forum-table">
+                <thead>
+                    <tr>
+                        <th style="width:45%;" id="index-th-forum">Раздел</th>
+                        <th style="width:15%;" id="index-th-topics">Темы</th>
+                        <th style="width:15%;" id="index-th-posts">Сообщения</th>
+                        <th style="width:25%;" id="index-th-last">Последнее сообщение</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="row1">
+                        <td><span class="topic-title">👤 <a href="#" onclick="showSection('about'); return false;" id="index-link-about">О себе</a></span><br /><span class="desc" id="index-desc-about">Моя биография и контакты</span></td>
+                        <td>1</td>
+                        <td>3</td>
+                        <td class="last-post">29.06.2026, 14:20<br />от <a href="#">Mr.p1gnum</a></td>
+                    </tr>
+                    <tr class="row2">
+                        <td><span class="topic-title">⚙️ <a href="#" onclick="showSection('skills'); return false;" id="index-link-skills">Навыки</a></span><br /><span class="desc" id="index-desc-skills">Технологии и инструменты</span></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td class="last-post">28.06.2026, 22:10<br />от <a href="#">Mr.p1gnum</a></td>
+                    </tr>
+                    <tr class="row1">
+                        <td><span class="topic-title">📂 <a href="#" onclick="showSection('projects'); return false;" id="index-link-projects">Проекты</a></span><br /><span class="desc" id="index-desc-projects">Мои разработки с картинками</span></td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td class="last-post">29.06.2026, 10:45<br />от <a href="#">Mr.p1gnum</a></td>
+                    </tr>
+                    <tr class="row2">
+                        <td><span class="topic-title">📝 <a href="#" onclick="showSection('blog'); return false;" id="index-link-blog">Блог</a></span><br /><span class="desc" id="index-desc-blog">Заметки и мысли</span></td>
+                        <td>3</td>
+                        <td>5</td>
+                        <td class="last-post">28.06.2026, 19:00<br />от <a href="#">Mr.p1gnum</a></td>
+                    </tr>
+                    <tr class="row1">
+                        <td><span class="topic-title">📖 <a href="#" onclick="showSection('guestbook'); return false;" id="index-link-guestbook">Гостевая книга</a></span><br /><span class="desc" id="index-desc-guestbook">Оставьте свой след</span></td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td class="last-post">29.06.2026, 09:12<br />от <a href="#">Гость</a></td>
+                    </tr>
+                    <tr class="row2">
+                        <td><span class="topic-title">🏆 <a href="#" onclick="showSection('achievements'); return false;" id="index-link-achievements">Достижения</a></span><br /><span class="desc" id="index-desc-achievements">Мои успехи и награды</span></td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td class="last-post">27.06.2026, 16:40<br />от <a href="#">Mr.p1gnum</a></td>
+                    </tr>
+                    <tr class="row1">
+                        <td><span class="topic-title">✉️ <a href="#" onclick="showSection('contacts'); return false;" id="index-link-contacts">Контакты</a></span><br /><span class="desc" id="index-desc-contacts">Как со мной связаться</span></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td class="last-post">29.06.2026, 08:00<br />от <a href="#">Mr.p1gnum</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="margin-top:12px;">
+                <span class="button button-primary" id="index-btn-newtopic" onclick="alert('Добро пожаловать на форум!')">Новая тема</span>
+                <span class="button" id="index-btn-search" onclick="alert('Поиск по форуму')">Поиск</span>
+            </div>
         </div>
-    </footer>
 
+        <!-- ===== РАЗДЕЛ: О себе ===== -->
+        <div id="section-about" class="forum-section">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                <h2 id="about-title">👤 О себе</h2>
+                <span><a href="#" onclick="showSection('index'); return false;" class="button" id="about-back">⬅ Назад к разделам</a></span>
+            </div>
+            <div class="post">
+                <div class="post-author">
+                    <div class="avatar">🧑‍💻</div>
+                    <div class="username">Mr.p1gnum</div>
+                    <div class="user-status">⭐ Администратор</div>
+                    <div class="user-detail" id="about-reg">Зарегистрирован: 01.01.2020</div>
+                    <div class="user-detail" id="about-posts">Сообщений: 42</div>
+                </div>
+                <div class="post-body">
+                    <div class="post-header">
+                        <span id="about-topic-title"><strong>Тема:</strong> Приветствие</span>
+                        <span class="post-date">29.06.2026, 14:20</span>
+                    </div>
+                    <div class="post-content" id="about-content">
+                        <p>Привет! Я Mr.p1gnum — разработчик и энтузиаст самохостинга. Люблю создавать полезные инструменты, автоматизировать рутину и экспериментировать с новыми технологиями.</p>
+                        <p>В свободное время веду свой блог, участвую в open-source проектах и помогаю сообществу.</p>
+                        <p><strong>Контакты:</strong> Telegram, GitHub, GitLab — везде я <strong>@mrp1gnum</strong>.</p>
+                    </div>
+                    <div class="post-signature" id="about-sig">— «Сделай сам, и будет работать»</div>
+                </div>
+            </div>
+            <!-- Дополнительные комментарии -->
+            <div class="post">
+                <div class="post-author">
+                    <div class="avatar">👤</div>
+                    <div class="username">Гость_007</div>
+                    <div class="user-status">🟢 Online</div>
+                    <div class="user-detail">Зарегистрирован: —</div>
+                    <div class="user-detail">Сообщений: 1</div>
+                </div>
+                <div class="post-body">
+                    <div class="post-header">
+                        <span><strong>Тема:</strong> Приветствие</span>
+                        <span class="post-date">29.06.2026, 14:35</span>
+                    </div>
+                    <div class="post-content" id="about-comment1">
+                        <p>Отличное знакомство! Тоже интересуюсь самохостингом. Буду следить за твоими проектами.</p>
+                    </div>
+                    <div class="post-signature">—</div>
+                </div>
+            </div>
+            <div class="post">
+                <div class="post-author">
+                    <div class="avatar">👩‍💻</div>
+                    <div class="username">CodeMaster</div>
+                    <div class="user-status">🟢 Online</div>
+                    <div class="user-detail">Зарегистрирован: 12.02.2021</div>
+                    <div class="user-detail">Сообщений: 17</div>
+                </div>
+                <div class="post-body">
+                    <div class="post-header">
+                        <span><strong>Тема:</strong> Приветствие</span>
+                        <span class="post-date">29.06.2026, 15:02</span>
+                    </div>
+                    <div class="post-content" id="about-comment2">
+                        <p>Привет! Отличный подход к автоматизации. Может, обменяемся опытом по CI/CD?</p>
+                    </div>
+                    <div class="post-signature">— «Код должен быть красивым»</div>
+                </div>
+            </div>
+            <div style="margin-top:8px;">
+                <span class="button button-primary" id="about-btn-reply">Ответить</span>
+                <span class="button" id="about-btn-quote">Цитировать</span>
+            </div>
+        </div>
 
-    <script src="script.js"></script>
+        <!-- ===== РАЗДЕЛ: Навыки ===== -->
+        <div id="section-skills" class="forum-section">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                <h2 id="skills-title">⚙️ Навыки</h2>
+                <span><a href="#" onclick="showSection('index'); return false;" class="button" id="skills-back">⬅ Назад к разделам</a></span>
+            </div>
+            <div class="post">
+                <div class="post-author">
+                    <div class="avatar">🧑‍💻</div>
+                    <div class="username">Mr.p1gnum</div>
+                    <div class="user-status">⭐ Администратор</div>
+                    <div class="user-detail" id="skills-reg">Зарегистрирован: 01.01.2020</div>
+                    <div class="user-detail" id="skills-posts">Сообщений: 42</div>
+                </div>
+                <div class="post-body">
+                    <div class="post-header">
+                        <span id="skills-topic-title"><strong>Тема:</strong> Технологический стек</span>
+                        <span class="post-date">28.06.2026, 22:10</span>
+                    </div>
+                    <div class="post-content" id="skills-content">
+                        <ul style="padding-left:20px; list-style:square;">
+                            <li><strong>Контейнеризация:</strong> Docker, docker-compose</li>
+                            <li><strong>CI/CD:</strong> GitLab CI, автоматические пайплайны</li>
+                            <li><strong>Self-hosting:</strong> Собственный сервер, полный контроль</li>
+                            <li><strong>Безопасность:</strong> Фаерволы, HTTPS, защита от атак</li>
+                            <li><strong>Администрирование Linux:</strong> Скрипты, сеть, диски</li>
+                            <li><strong>VPN:</strong> WireGuard, OpenVPN</li>
+                            <li><strong>Базы данных:</strong> PostgreSQL, MySQL, резервное копирование</li>
+                            <li><strong>Оркестрация:</strong> Docker Swarm</li>
+                        </ul>
+                    </div>
+                    <div class="post-signature" id="skills-sig">— «Код — это поэзия»</div>
+                </div>
+            </div>
+            <div style="margin-top:8px;">
+                <span class="button button-primary" id="skills-btn-reply">Ответить</span>
+            </div>
+        </div>
+
+        <!-- ===== РАЗДЕЛ: Проекты ===== -->
+        <div id="section-projects" class="forum-section">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                <h2 id="projects-title">📂 Проекты</h2>
+                <span><a href="#" onclick="showSection('index'); return false;" class="button" id="projects-back">⬅ Назад к разделам</a></span>
+            </div>
+
+            <!-- Проект 1 -->
+            <div class="post">
+                <div class="post-author">
+                    <div class="avatar">🐳</div>
+                    <div class="username">Mr.p1gnum</div>
+                    <div class="user-status">⭐ Администратор</div>
+                    <div class="user-detail">Зарегистрирован: 01.01.2020</div>
+                    <div class="user-detail">Сообщений: 42</div>
+                </div>
+                <div class="post-body">
+                    <div class="post-header">
+                        <span id="project1-title"><strong>Тема:</strong> Локальный GitLab</span>
+                        <span class="post-date">29.06.2026, 10:00</span>
+                    </div>
+                    <div class="post-content">
+                        <div style="display:flex; gap:12px; align-items:flex-start;">
+                            <span style="font-size:48px;">🦊</span>
+                            <div>
+                                <p id="project1-desc">Автоматические тесты через pipeline. Полный контроль над кодом.</p>
+                                <p><a href="#" id="project1-link">Исходники (not modded) →</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-signature">— «Всё под контролем»</div>
+                </div>
+            </div>
+
+            <!-- Проект 2 -->
+            <div class="post">
+                <div class="post-author">
+                    <div class="avatar">📊</div>
+                    <div class="username">Mr.p1gnum</div>
+                    <div class="user-status">⭐ Администратор</div>
+                    <div class="user-detail">Зарегистрирован: 01.01.2020</div>
+                    <div class="user-detail">Сообщений: 42</div>
+                </div>
+                <div class="post-body">
+                    <div class="post-header">
+                        <span id="project2-title"><strong>Тема:</strong> Система мониторинга</span>
+                        <span class="post-date">29.06.2026, 10:45</span>
+                    </div>
+                    <div class="post-content">
+                        <div style="display:flex; gap:12px; align-items:flex-start;">
+                            <span style="font-size:48px;">📈</span>
+                            <div>
+                                <p id="project2-desc">Prometheus + Grafana, дашборды для всех сервисов. Уведомления в Telegram.</p>
+                                <p><a href="#" id="project2-link">Исходники →</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-signature">— «Данные — это нефть»</div>
+                </div>
+            </div>
+
+            <!-- Проект 3 -->
+            <div class="post">
+                <div class="post-author">
+                    <div class="avatar">🌐</div>
+                    <div class="username">Mr.p1gnum</div>
+                    <div class="user-status">⭐ Администратор</div>
+                    <div class="user-detail">Зарегистрирован: 01.01.2020</div>
+                    <div class="user-detail">Сообщений: 42</div>
+                </div>
+                <div class="post-body">
+                    <div class="post-header">
+                        <span id="project3-title"><strong>Тема:</strong> Этот сайт (форум)</span>
+                        <span class="post-date">29.06.2026, 11:20</span>
+                    </div>
+                    <div class="post-content">
+                        <div style="display:flex; gap:12px; align-items:flex-start;">
+                            <span style="font-size:48px;">🖥️</span>
+                            <div>
+                                <p id="project3-desc">Автоматический деплой статики из GitLab CI на свой хост. Полностью самодостаточный.</p>
+                                <p><a href="#" id="project3-link">Исходники →</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-signature">— «Сделано с душой»</div>
+                </div>
+            </div>
+
+            <!-- Проект 4 -->
+            <div class="post">
+                <div class="post-author">
+                    <div class="avatar">🤖</div>
+                    <div class="username">Mr.p1gnum</div>
+                    <div class="user-status">⭐ Администратор</div>
+                    <div class="user-detail">Зарегистрирован: 01.01.2020</div>
+                    <div class="user-detail">Сообщений: 42</div>
+                </div>
+                <div class="post-body">
+                    <div class="post-header">
+                        <span id="project4-title"><strong>Тема:</strong> Telegram-бот для мониторинга</span>
+                        <span class="post-date">29.06.2026, 12:00</span>
+                    </div>
+                    <div class="post-content">
+                        <div style="display:flex; gap:12px; align-items:flex-start;">
+                            <span style="font-size:48px;">📱</span>
+                            <div>
+                                <p id="project4-desc">Alert-ы о падении сервисов, отправка логов, интерактивные команды.</p>
+                                <p><a href="#" id="project4-link">Исходники →</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-signature">— «Боты правят миром»</div>
+                </div>
+            </div>
+
+            <!-- Проект 5 -->
+            <div class="post">
+                <div class="post-author">
+                    <div class="avatar">✉️</div>
+                    <div class="username">Mr.p1gnum</div>
+                    <div class="user-status">⭐ Администратор</div>
+                    <div class="user-detail">Зарегистрирован: 01.01.2020</div>
+                    <div class="user-detail">Сообщений: 42</div>
+                </div>
+                <div class="post-body">
+                    <div class="post-header">
+                        <span id="project5-title"><strong>Тема:</strong> Почтовый сервис</span>
+                        <span class="post-date">29.06.2026, 13:30</span>
+                    </div>
+                    <div class="post-content">
+                        <div style="display:flex; gap:12px; align-items:flex-start;">
+                            <span style="font-size:48px;">📧</span>
+                            <div>
+                                <p id="project5-desc">Почтовый сервис для рабочей почты и будущих программ. Полный спам-фильтр.</p>
+                                <p><a href="#" id="project5-link">Исходники →</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-signature">— «Почта — это важно»</div>
+                </div>
+            </div>
+
+            <div style="margin-top:8px;">
+                <span class="button button-primary" id="projects-btn-newtopic">Новая тема</span>
+            </div>
+        </div>
+
+        <!-- ===== РАЗДЕЛ: Блог ===== -->
+        <div id="section-blog" class="forum-section">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                <h2 id="blog-title">📝 Блог</h2>
+                <span><a href="#" onclick="showSection('index'); return false;" class="button" id="blog-back">⬅ Назад к разделам</a></span>
+            </div>
+
+            <div class="post">
+                <div class="post-author">
+                    <div class="avatar">✍️</div>
+                    <div class="username">Mr.p1gnum</div>
+                    <div class="user-status">⭐ Администратор</div>
+                    <div class="user-detail">Зарегистрирован: 01.01.2020</div>
+                    <div class="user-detail">Сообщений: 42</div>
+                </div>
+                <div class="post-body">
+                    <div class="post-header">
+                        <span id="blog-post1-title"><strong>Тема:</strong> Как я перешёл на самохостинг</span>
+                        <span class="post-date">28.06.2026, 19:00</span>
+                    </div>
+                    <div class="post-content" id="blog-post1-content">
+                        <p>В 2020 году я решил, что хватит пользоваться облачными сервисами. Купил старый ThinkCentre, установил Debian и начал экспериментировать.</p>
+                        <p>Сейчас у меня работает более 15 сервисов: Nextcloud, Gitea, Matrix, Jitsi, Grafana и многое другое. Это был лучший шаг.</p>
+                    </div>
+                    <div class="post-signature">— «Сделай сам»</div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-author">
+                    <div class="avatar">⚡</div>
+                    <div class="username">Mr.p1gnum</div>
+                    <div class="user-status">⭐ Администратор</div>
+                    <div class="user-detail">Зарегистрирован: 01.01.2020</div>
+                    <div class="user-detail">Сообщений: 42</div>
+                </div>
+                <div class="post-body">
+                    <div class="post-header">
+                        <span id="blog-post2-title"><strong>Тема:</strong> Настройка WireGuard за 15 минут</span>
+                        <span class="post-date">27.06.2026, 21:30</span>
+                    </div>
+                    <div class="post-content" id="blog-post2-content">
+                        <p>Простая инструкция, как поднять VPN-сервер, чтобы безопасно подключаться к домашней сети из любой точки мира.</p>
+                        <p>WireGuard — это быстро, просто и безопасно. Никаких сложных сертификатов.</p>
+                    </div>
+                    <div class="post-signature">— «VPN — это база»</div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-author">
+                    <div class="avatar">🐍</div>
+                    <div class="username">Mr.p1gnum</div>
+                    <div class="user-status">⭐ Администратор</div>
+                    <div class="user-detail">Зарегистрирован: 01.01.2020</div>
+                    <div class="user-detail">Сообщений: 42</div>
+                </div>
+                <div class="post-body">
+                    <div class="post-header">
+                        <span id="blog-post3-title"><strong>Тема:</strong> Python для автоматизации рутины</span>
+                        <span class="post-date">26.06.2026, 17:15</span>
+                    </div>
+                    <div class="post-content" id="blog-post3-content">
+                        <p>Как я пишу скрипты для бэкапов, мониторинга и очистки логов. Экономлю часы каждую неделю.</p>
+                        <p>Библиотеки: schedule, paramiko, requests — мой джентльменский набор.</p>
+                    </div>
+                    <div class="post-signature">— «Код — это время»</div>
+                </div>
+            </div>
+
+            <div style="margin-top:8px;">
+                <span class="button button-primary" id="blog-btn-newtopic">Новая запись</span>
+            </div>
+        </div>
+
+        <!-- ===== РАЗДЕЛ: Гостевая книга ===== -->
+        <div id="section-guestbook" class="forum-section">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                <h2 id="guestbook-title">📖 Гостевая книга</h2>
+                <span><a href="#" onclick="showSection('index'); return false;" class="button" id="guestbook-back">⬅ Назад к разделам</a></span>
+            </div>
+
+            <div class="post">
+                <div class="post-author">
+                    <div class="avatar">👤</div>
+                    <div class="username">Алексей</div>
+                    <div class="user-status">🟢 Online</div>
+                    <div class="user-detail">Зарегистрирован: 10.03.2021</div>
+                    <div class="user-detail">Сообщений: 15</div>
+                </div>
+                <div class="post-body">
+                    <div class="post-header">
+                        <span><strong>Тема:</strong> Отличный форум!</span>
+                        <span class="post-date">29.06.2026, 09:12</span>
+                    </div>
+                    <div class="post-content" id="guestbook-entry1">
+                        <p>Привет! Наткнулся на твой форум — очень атмосферно. Удачи в развитии!</p>
+                    </div>
+                    <div class="post-signature">— «С уважением»</div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-author">
+                    <div class="avatar">👩‍💻</div>
+                    <div class="username">Екатерина</div>
+                    <div class="user-status">🔴 Offline</div>
+                    <div class="user-detail">Зарегистрирован: 05.07.2022</div>
+                    <div class="user-detail">Сообщений: 8</div>
+                </div>
+                <div class="post-body">
+                    <div class="post-header">
+                        <span><strong>Тема:</strong> Спасибо за материалы</span>
+                        <span class="post-date">28.06.2026, 22:45</span>
+                    </div>
+                    <div class="post-content" id="guestbook-entry2">
+                        <p>Твои статьи по Docker очень помогли мне на работе. Спасибо!</p>
+                    </div>
+                    <div class="post-signature">— «Добра»</div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-author">
+                    <div class="avatar">🧑‍🔧</div>
+                    <div class="username">Иван</div>
+                    <div class="user-status">🟢 Online</div>
+                    <div class="user-detail">Зарегистрирован: 20.01.2020</div>
+                    <div class="user-detail">Сообщений: 22</div>
+                </div>
+                <div class="post-body">
+                    <div class="post-header">
+                        <span><strong>Тема:</strong> Вопрос по WireGuard</span>
+                        <span class="post-date">28.06.2026, 20:10</span>
+                    </div>
+                    <div class="post-content" id="guestbook-entry3">
+                        <p>Подскажи, как настроить маршрутизацию между несколькими клиентами?</p>
+                    </div>
+                    <div class="post-signature">— «С уважением»</div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-author">
+                    <div class="avatar">🧑‍💻</div>
+                    <div class="username">Mr.p1gnum</div>
+                    <div class="user-status">⭐ Администратор</div>
+                    <div class="user-detail">Зарегистрирован: 01.01.2020</div>
+                    <div class="user-detail">Сообщений: 42</div>
+                </div>
+                <div class="post-body">
+                    <div class="post-header">
+                        <span><strong>Тема:</strong> Re: Вопрос по WireGuard</span>
+                        <span class="post-date">29.06.2026, 00:15</span>
+                    </div>
+                    <div class="post-content" id="guestbook-entry4">
+                        <p>Иван, нужно добавить правила iptables и указать AllowedIPs. Напиши в Telegram, я помогу.</p>
+                    </div>
+                    <div class="post-signature">— «Всегда рад помочь»</div>
+                </div>
+            </div>
+
+            <div style="margin-top:8px;">
+                <span class="button button-primary" id="guestbook-btn-add">Добавить запись</span>
+            </div>
+        </div>
+
+        <!-- ===== РАЗДЕЛ: Достижения ===== -->
+        <div id="section-achievements" class="forum-section">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                <h2 id="achievements-title">🏆 Достижения</h2>
+                <span><a href="#" onclick="showSection('index'); return false;" class="button" id="achievements-back">⬅ Назад к разделам</a></span>
+            </div>
+            <div class="post">
+                <div class="post-author">
+                    <div class="avatar">🏅</div>
+                    <div class="username">Mr.p1gnum</div>
+                    <div class="user-status">⭐ Администратор</div>
+                    <div class="user-detail">Зарегистрирован: 01.01.2020</div>
+                    <div class="user-detail">Сообщений: 42</div>
+                </div>
+                <div class="post-body">
+                    <div class="post-header">
+                        <span id="achievements-topic-title"><strong>Тема:</strong> Мои успехи</span>
+                        <span class="post-date">27.06.2026, 16:40</span>
+                    </div>
+                    <div class="post-content" id="achievements-content">
+                        <ul style="padding-left:20px; list-style:square;">
+                            <li>🏆 <strong>2025</strong> — Выступил с докладом на конференции DevOps Meetup</li>
+                            <li>🏆 <strong>2024</strong> — Создал крупнейший в рунете гайд по самохостингу (более 5000 просмотров)</li>
+                            <li>🏆 <strong>2023</strong> — Внедрил CI/CD на 50+ проектах</li>
+                            <li>🏆 <strong>2022</strong> — Получил сертификацию Docker Certified Associate</li>
+                            <li>🏆 <strong>2021</strong> — Организовал локальный митап по Linux</li>
+                        </ul>
+                    </div>
+                    <div class="post-signature">— «Достижения — это результат»</div>
+                </div>
+            </div>
+            <div style="margin-top:8px;">
+                <span class="button button-primary" id="achievements-btn-reply">Ответить</span>
+            </div>
+        </div>
+
+        <!-- ===== РАЗДЕЛ: Контакты ===== -->
+        <div id="section-contacts" class="forum-section">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                <h2 id="contacts-title">✉️ Контакты</h2>
+                <span><a href="#" onclick="showSection('index'); return false;" class="button" id="contacts-back">⬅ Назад к разделам</a></span>
+            </div>
+            <div class="post">
+                <div class="post-author">
+                    <div class="avatar">📇</div>
+                    <div class="username">Mr.p1gnum</div>
+                    <div class="user-status">⭐ Администратор</div>
+                    <div class="user-detail">Зарегистрирован: 01.01.2020</div>
+                    <div class="user-detail">Сообщений: 42</div>
+                </div>
+                <div class="post-body">
+                    <div class="post-header">
+                        <span id="contacts-topic-title"><strong>Тема:</strong> Как связаться</span>
+                        <span class="post-date">29.06.2026, 08:00</span>
+                    </div>
+                    <div class="post-content" id="contacts-content">
+                        <p><strong>Telegram:</strong> <a href="#">@mrp1gnum</a></p>
+                        <p><strong>GitHub:</strong> <a href="#">github.com/mrp1gnum</a></p>
+                        <p><strong>GitLab:</strong> <a href="#">gitlab.mrp1gnum.ru</a></p>
+                        <p><strong>Email:</strong> <a href="#">mrp1gnum@example.com</a></p>
+                        <p>Я всегда открыт к общению, вопросам и сотрудничеству.</p>
+                    </div>
+                    <div class="post-signature">— «Будем на связи»</div>
+                </div>
+            </div>
+            <div style="margin-top:8px;">
+                <span class="button button-primary" id="contacts-btn-send">Написать</span>
+            </div>
+        </div>
+
+    </div><!-- /content -->
+
+    <!-- ===== ФУТЕР ===== -->
+    <div id="footer">
+        <span id="footer-copy">&copy; 2026 Mr.p1gnum Forum — Все права защищены.</span> Время: <span id="footer-time">00:00</span>
+    </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
