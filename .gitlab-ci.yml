@@ -13,7 +13,7 @@ deploy_to_prod:
   script:
     - chmod 600 $SSH_PRIVKEY_CHEF
     # Синхронизируем файлы из репозитория в папку на сервере
-    - rsync -avz -e "ssh $SSH_PORT_SUP -i $SSH_PRIVKEY_SUP" --delete ./site $SSH_LOGIN@$SUP_SERVER:/var/prod/html/mrp1gnum.ru/
+    - rsync -avz -e "ssh $SSH_PORT_CHEF -i $SSH_PRIVKEY_CHEF" --delete ./site $SSH_LOGIN@$CHEF_SERVER:/var/prod/html/mrp1gnum.ru/
     - ssh $SSH_PORT_CHEF -i $SSH_PRIVKEY_CHEF -o StrictHostKeyChecking=no $SSH_LOGIN@$CHEF_SERVER "docker restart nginx"
 
     # Если требуется перезапустить веб-сервер:
