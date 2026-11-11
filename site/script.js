@@ -40,10 +40,14 @@ const translations = {
         project4_desc: "Alert-ы для мониторинга сетевой доступности серверов.",
         project4_link: "Исходники →",
         project5_title: "Почтовый сервис",
+<<<<<<< HEAD
         project6_title: "Хостинг игровых серверов",
         project5_desc: "",
         project6_desc: "Хостинг для игровых серверов с поддержкой различных игр.",
         project6_link: "Сайт →",
+=======
+        project5_desc: "",
+>>>>>>> mainSite/main
         about_title: "Обо мне",
         about_desc: "",
         copied: "✅ Скопировано!",
